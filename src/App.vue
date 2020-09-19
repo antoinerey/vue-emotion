@@ -1,5 +1,9 @@
 <template>
-  <Button color="blue" class="red">
+  <Button
+    color="blue"
+    class="red"
+    :css="{ padding: 10, ':hover': { padding: 20 } }"
+  >
     Hello world
   </Button>
   <SuperButton color="blue" class="red">
