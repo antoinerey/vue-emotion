@@ -1,32 +1,41 @@
 <template>
+  <!-- Transparent wrapper -->
   <Box>
     Empty box
   </Box>
+
+  <!-- Transparent wrapper using `css` prop -->
   <Box :css="{ color: 'brown' }">
     Super simple box
   </Box>
-  <Button
-    color="blue"
-    class="red"
-    :css="{ padding: 10, ':hover': { padding: 20 } }"
-  >
+
+  <!-- Styled component -->
+  <Button color="blue">
     Hello world
   </Button>
+
+  <!-- Extended styled component -->
   <SuperButton color="blue" class="red">
     Hello world
   </SuperButton>
+
+  <!-- Styled component, with static CSS class -->
+  <Button color="deeppink" class="red">
+    Hello world
+  </Button>
+
+  <!-- Styled component, merging custom emotion CSS class -->
   <Button color="red" :class="styles.black">
     Hello world
   </Button>
-  <Button color="deeppink" :class="styles.big">
-    Hello world
-  </Button>
-  <Button color="orange">
-    Hello world
-  </Button>
+
+  <!-- Styled component created through the `as` method (native element) -->
+  <!-- Event listeners and attributes are correctly bound -->
   <Heading color="blue" @click="log" data-test="hello">
     Heading
   </Heading>
+
+  <!-- Styled component created through the `as` method (custom component) -->
   <Text>
     Still rendering an H1
   </Text>
@@ -51,9 +60,6 @@ export const log = console.log.bind(console)
 export const styles = {
   black: css({
     background: 'black',
-  }),
-  big: css({
-    fontSize: 20,
   }),
 }
 </script>
