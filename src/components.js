@@ -1,5 +1,7 @@
 import styled from './styled'
 
+export const Box = styled('div')
+
 export const Button = styled(
   // Set the native HTML tag we want to use.
   'button',

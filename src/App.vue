@@ -1,4 +1,10 @@
 <template>
+  <Box>
+    Empty box
+  </Box>
+  <Box :css="{ color: 'brown' }">
+    Super simple box
+  </Box>
   <Button
     color="blue"
     class="red"
@@ -27,11 +33,12 @@
 </template>
 
 <script setup>
-import { Button, Heading, Text, SuperButton } from './components'
+import { Box, Button, Heading, Text, SuperButton } from './components'
 import { css } from 'emotion'
 
 export default {
   components: {
+    Box,
     Button,
     Heading,
     Text,

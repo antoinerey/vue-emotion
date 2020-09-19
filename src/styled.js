@@ -1,7 +1,7 @@
 import { h } from 'vue'
 import { css, cx } from 'emotion'
 
-const styled = (tag, styles, propsWhitelist = []) => {
+const styled = (tag, styles = {}, propsWhitelist = []) => {
   const component = (props, context) => {
     // Accept both styles object, and styles functions.
     // Basically allows to update styles based on props.
@@ -10,6 +10,11 @@ const styled = (tag, styles, propsWhitelist = []) => {
     // Support for the `css` prop.
     // The values take precedence over the default styles.
     const finalStylesObject = { ...stylesObject, ...props.css }
+
+    // Make sure not to insert any CSS classes if there are not styles.
+    if (Object.keys(finalStylesObject).length === 0) {
+      return h(tag, context.attrs, context.slots)
+    }
 
     const attrs = {
       ...context.attrs,
@@ -29,6 +34,7 @@ const styled = (tag, styles, propsWhitelist = []) => {
   component.inheritAttrs = false
 
   // Filters props out, so they're not inserted into the DOM.
+  // Support both array & object definitions.
   // Also, register the `css` prop.
   if (Array.isArray(propsWhitelist)) {
     component.props = [...propsWhitelist, 'css']
