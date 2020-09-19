@@ -1,24 +1,13 @@
 # vue3-test
 
-## Project setup
-```
-yarn install
-```
+Note that the important piece of code is located under `src/styled.js`.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+---
 
-### Compiles and minifies for production
-```
-yarn build
-```
+Todo:
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [ ] Handle theming.
+- [ ] Support SSR.
+- [ ] Port the `css` prop to native HTML elements.
+  - Probably need to customize the behaviour at compiler level.
+- [ ] Extract static CSS at build time.
